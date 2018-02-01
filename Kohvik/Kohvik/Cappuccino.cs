@@ -11,7 +11,6 @@ namespace Kohvik
         public Cappuccino()
         {
             Nimi = "Cappuccino";
-            PiimOlemas = true;
             TegemiseViis = "Cappuccinos espressole on lisatud kuuma piima ja piimavahtu.";
         }
     }

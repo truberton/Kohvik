@@ -11,7 +11,6 @@ namespace Kohvik
         public MustKohvi()
         {
             Nimi = "Must kohvi";
-            PiimOlemas = false;
             TegemiseViis = "Täpselt nagu arvaksid";
         }
     }

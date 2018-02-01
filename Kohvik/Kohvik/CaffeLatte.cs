@@ -11,7 +11,6 @@ namespace Kohvik
         public CaffeLatte()
         {
             Nimi = "Caffe Latte";
-            PiimOlemas = true;
             TegemiseViis = "Caffè latte on kohvijook, kus on 1/4 espressot ja 3/4 vahustatud piima.";
         }
     }
