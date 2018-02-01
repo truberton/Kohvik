@@ -55,7 +55,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MustKohvi.cs" />
+    <Compile Include="Croissant.cs" />
     <Compile Include="Saiake.cs" />
+    <Compile Include="Sõõrik.cs" />
     <Compile Include="Toode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

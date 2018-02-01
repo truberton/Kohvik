@@ -11,14 +11,19 @@ namespace Kohvik
     class Toode
     {
         public string Nimi;
-        public bool PiimOlemas;
         public string TegemiseViis;
 
         public void Ostmine()
         {
-            string Tekst = "Teie ostsite " + Nimi + " mida tehakse järgnevalt: " + TegemiseViis + "\n";
-            File.AppendAllText("OstetudAsjad.txt", Tekst);
+            string Tekst = "Teie ostsite " + Nimi + " mida tehakse järgnevalt: " + TegemiseViis;
+            File.AppendAllText("OstetudAsjad.txt", Tekst + Environment.NewLine);
             MessageBox.Show(Tekst);
+        }
+        public virtual void PagartooteOstmine(string Kohvi)
+        {
+            string Tekst = "Teie ostsite " + Nimi + ", head isu!";
+            MessageBox.Show(Tekst);
+            File.AppendAllText("OstetudAsjad.txt", Tekst + Environment.NewLine);
         }
     }
 }

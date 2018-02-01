@@ -44,9 +44,26 @@ namespace Kohvik
 
         private void Osta_Click(object sender, EventArgs e)
         {
-            if (Toit.SelectedIndex > 0) //Teeb kindlaks, et Toit comboboxist on valitud mingi toit mitte mitte midagi või "Mitte midagi"
+            if (Toit.SelectedIndex > 0 && Kohvi.SelectedIndex > -1) //Teeb kindlaks, et Toit comboboxist on valitud mingi toit mitte mitte midagi või "Mitte midagi"
             {
-
+                switch (Toit.SelectedItem.ToString())
+                {
+                    case "Sõõrik":
+                        var Sõõrik = new Sõõrik();
+                        Sõõrik.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        break;
+                    case "Saiake":
+                        var Saiake = new Saiake();
+                        Saiake.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        break;
+                    case "Croissant":
+                        var Croissant = new Croissant();
+                        Croissant.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        break;
+                    default:
+                        MessageBox.Show("Miski on valesti");
+                        break;
+                }
             }
             else
             {
