@@ -12,6 +12,9 @@ namespace Kohvik
 {
     public partial class Kohvik : Form
     {
+        public string KohviTüüp { get; set; }
+        public bool KohviOlemas { get; set; }
+
         public Kohvik()
         {
             InitializeComponent();
@@ -44,30 +47,39 @@ namespace Kohvik
 
         private void Osta_Click(object sender, EventArgs e)
         {
-            if (Toit.SelectedIndex > 0 && Kohvi.SelectedIndex > -1) //Teeb kindlaks, et Toit comboboxist on valitud mingi toit mitte mitte midagi või "Mitte midagi"
+            try
+            {
+                KohviTüüp = Kohvi.SelectedItem.ToString();
+            }
+            catch (Exception)
+            {
+                KohviTüüp = "";
+                KohviOlemas = false;
+            }
+            if (Toit.SelectedIndex > 0) //Teeb kindlaks, et Toit comboboxist on valitud mingi toit mitte mitte midagi või "Mitte midagi"
             {
                 switch (Toit.SelectedItem.ToString())
                 {
                     case "Sõõrik":
                         var Sõõrik = new Sõõrik();
-                        Sõõrik.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        Sõõrik.PagartooteOstmine(KohviTüüp);
                         break;
                     case "Saiake":
                         var Saiake = new Saiake();
-                        Saiake.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        Saiake.PagartooteOstmine(KohviTüüp);
                         break;
                     case "Croissant":
                         var Croissant = new Croissant();
-                        Croissant.PagartooteOstmine(Kohvi.SelectedItem.ToString());
+                        Croissant.PagartooteOstmine(KohviTüüp);
                         break;
                     default:
                         MessageBox.Show("Miski on valesti");
                         break;
                 }
             }
-            else
+            else if (Kohvi.SelectedIndex > -1)
             {
-                switch (Kohvi.SelectedItem.ToString())
+                switch (KohviTüüp)
                 {
                     case "Must kohvi":
                         var MustKohvi = new MustKohvi();

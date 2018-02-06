@@ -16,14 +16,14 @@ namespace Kohvik
         public void Ostmine()
         {
             string Tekst = "Teie ostsite " + Nimi + " mida tehakse järgnevalt: " + TegemiseViis;
-            File.AppendAllText("OstetudAsjad.txt", Tekst + Environment.NewLine);
+            File.AppendAllText("OstetudAsjad.txt", "1x " + Nimi + Environment.NewLine);
             MessageBox.Show(Tekst);
         }
         public virtual void PagartooteOstmine(string Kohvi)
         {
             string Tekst = "Teie ostsite " + Nimi + ", head isu!";
             MessageBox.Show(Tekst);
-            File.AppendAllText("OstetudAsjad.txt", Tekst + Environment.NewLine);
+            File.AppendAllText("OstetudAsjad.txt", "1x " + Nimi + Environment.NewLine);
         }
     }
 }
