@@ -11,6 +11,7 @@ namespace Kohvik
         public Saiake()
         {
             Nimi = "Saiake";
+            Hind = 2;
         }
         public override void PagartooteOstmine(string Kohvi)
         {

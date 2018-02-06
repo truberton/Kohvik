@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Kohvik
 {
     public partial class Kohvik : Form
     {
-        public string KohviTüüp { get; set; }
-        public bool KohviOlemas { get; set; }
+        protected string KohviTüüp { get; set; }
+        protected bool KohviOlemas { get; set; }
+        protected double KokkuLäheb { get; set; }
 
         public Kohvik()
         {
@@ -28,11 +23,6 @@ namespace Kohvik
             Toit.Items.Add("Sõõrik");
             Toit.Items.Add("Saiake");
             Toit.Items.Add("Croissant");
-        }
-
-        private void Kohvik_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Kohvi_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +92,21 @@ namespace Kohvik
                         break;
                 }
             }
+            foreach (string line in File.ReadLines("OstetudAsjad.txt"))
+            {
+                if (!line.Contains("Kokku") || !line.Contains ("-"))
+                {
+                    string Kokku = line.Substring(line.LastIndexOf("€"));
+                    Kokku = Kokku.Replace("€", "");
+                    KokkuLäheb += Convert.ToDouble(Kokku); 
+                }
+            }
+        }
+
+        private void Kohvik_FormClosing(object sender, FormClosingEventArgs e) //Kui panna forms kinni, siis lisab tšekki totali
+        {
+            File.AppendAllText("OstetudAsjad.txt", "------------------------" + Environment.NewLine +
+                "Kokku: " + "€" + KokkuLäheb);
         }
     }
 }

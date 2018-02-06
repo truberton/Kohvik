@@ -82,7 +82,7 @@
             this.Controls.Add(this.Kohvi);
             this.Name = "Kohvik";
             this.Text = "Kohvik";
-            this.Load += new System.EventHandler(this.Kohvik_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Kohvik_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

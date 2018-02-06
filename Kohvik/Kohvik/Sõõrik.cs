@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kohvik
+﻿namespace Kohvik
 {
     class Sõõrik : Toode
     {
         public Sõõrik()
         {
             Nimi = "Sõõrik";
+            Hind = 2;
         }
         public override void PagartooteOstmine(string Kohvi)
         {
